@@ -17,8 +17,20 @@ Edit `query.overpassql` with any valid Overpass QL query. Your query **must**:
 
 - Start with `[out:json]` so the response is JSON
 - Include a `[timeout:N]` setting (30 seconds is fine for small queries, increase for larger ones)
-- For full geometry (polygons, linestrings), use `out body geom;`:
-- For centroids only (every element becomes a point), use `out center body;`:
+- For full geometry (polygons, linestrings), use `out body geom;`
+- For centroids only (every element becomes a point), use `out center body;`
+
+To define a search area, use `rel(<OSM relation ID>)` + `map_to_area`. You can find relation IDs on [openstreetmap.org](https://www.openstreetmap.org/) or via [Nominatim](https://nominatim.openstreetmap.org/). For example, Portland, OR is relation [186579](https://www.openstreetmap.org/relation/186579):
+
+```
+[out:json][timeout:30];
+rel(186579);
+map_to_area->.searchArea;
+(
+  nwr["amenity"="drinking_water"](area.searchArea);
+);
+out body geom;
+```
 
 Test your query at [overpass-turbo.eu](https://overpass-turbo.eu/) first to make sure it returns the data you expect.
 
