@@ -2,22 +2,14 @@
 
 Get a GeoJSON file of OpenStreetMap data, updated nightly, by writing one Overpass query. Useful for any occassion where you need a very narrow slice of OSM data (10's of MB) but don't need it to fresh to the minute.
 
-## How it works
-
-1. Reads the Overpass query in `query.overpassql`
-2. Every night, a GitHub Actions workflow sends that query to the Overpass API
-3. The response is converted to a GeoJSON file with full geometry and committed back to this repository
-4. You always have a fresh `data.geojson` you can link to, download, or use in other tools
-
 ## Quick start
 
-1. **Fork this repository** (or click "Use this template" if available)
-2. **Enable GitHub Actions** on your fork - GitHub disables Actions on forks by default. Go to the **Actions** tab and click **"I understand my workflows, go ahead and enable them"**
-3. **Edit `query.overpassql`** with your own Overpass query
-4. **Run the workflow manually**: go to **Actions** > **"Update GeoJSON Data"** > **"Run workflow"**
-5. **Check `data.geojson`** - it should now contain your data
+1. **Fork this repository** click "Use this template" > "Create a new respository", give it a descriptive name.
+2. **Edit `query.overpassql`** with your own Overpass query
+3. **Run the workflow manually**: go to **Actions** > **"Update GeoJSON Data"** > **"Run workflow"**
+4. **Check `data.geojson`** - it should now contain your data
 
-From now on, the data updates automatically every night at 04:00 UTC.
+From now on, your data will update automatically every night at 04:00 UTC.
 
 ## Writing your query
 
@@ -29,22 +21,6 @@ Edit `query.overpassql` with any valid Overpass QL query. Your query **must**:
 - For centroids only (every element becomes a point), use `out center body;`:
 
 Test your query at [overpass-turbo.eu](https://overpass-turbo.eu/) first to make sure it returns the data you expect.
-
-## Geometry handling
-
-The conversion preserves full OSM geometry:
-
-| OSM element                  | Output geometry           |
-| ---------------------------- | ------------------------- |
-| Node                         | Point                     |
-| Way (open)                   | LineString                |
-| Way (closed + area tags)     | Polygon                   |
-| Relation (type=multipolygon) | MultiPolygon (with holes) |
-| Relation (type=route)        | MultiLineString           |
-
-Closed ways are treated as Polygons when they have area-indicating tags like `building`, `landuse`, `natural`, `leisure`, `amenity`, `boundary`, etc. A closed way without these tags (e.g., a circular road) stays a LineString.
-
-If you use `out center` instead of `out geom`, all elements become Points at their centroid.
 
 ## Safety checks
 
