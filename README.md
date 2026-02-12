@@ -1,4 +1,4 @@
-# tap-in-osm
+# Microcosm
 
 Get a GeoJSON file of OpenStreetMap data, updated nightly, by writing one Overpass query. Useful for any occassion where you need a very narrow slice of OSM data (10's of MB) but don't need it to fresh to the minute.
 
