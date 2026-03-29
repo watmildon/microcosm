@@ -3874,6 +3874,24 @@
         "@id": "node/13404351117",
         "@type": "node"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.6656025,
+          45.50824
+        ]
+      },
+      "properties": {
+        "access": "customers",
+        "amenity": "drinking_water",
+        "fee": "no",
+        "seasonal": "no",
+        "@id": "node/13686891489",
+        "@type": "node"
+      }
     }
   ]
 }
