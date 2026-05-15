@@ -3909,6 +3909,27 @@
         "@id": "node/13753696897",
         "@type": "node"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.7324626,
+          45.5811707
+        ]
+      },
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "no",
+        "lit": "no",
+        "@id": "node/13830094418",
+        "@type": "node"
+      }
     }
   ]
 }
