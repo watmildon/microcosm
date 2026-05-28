@@ -11,6 +11,18 @@ Get a GeoJSON file of OpenStreetMap data, updated nightly, by writing one Overpa
 
 From now on, your data will update automatically every night at 04:00 UTC.
 
+## Identifying your instance to Overpass
+
+The Overpass API [usage policy](https://operations.osmfoundation.org/policies/api/) asks every client to send a distinctive `User-Agent` so operators can contact you if your queries are causing problems. By default this template sends `tap-in-osm (https://github.com/<your-fork>)`, which is derived automatically from `$GITHUB_REPOSITORY` and is unique per fork — no setup required.
+
+You're encouraged to override it with something that includes a way to reach you. Set a GitHub repository variable (Settings > Secrets and variables > Actions > Variables):
+
+| Variable     | Example                                            |
+| ------------ | -------------------------------------------------- |
+| `USER_AGENT` | `portland-drinking-water (contact: you@example.com)` |
+
+If you start seeing `HTTP 429` (rate-limited) responses in the workflow logs, a contact-bearing User-Agent makes it much easier for Overpass admins to help rather than block you.
+
 ## Writing your query
 
 Edit `query.overpassql` with any valid Overpass QL query. Your query **must**:

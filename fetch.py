@@ -30,6 +30,25 @@ DEFAULT_DROP_THRESHOLD = 50  # percent
 DEFAULT_MAX_DATA_LAG_HOURS = 48
 REQUEST_TIMEOUT = 180  # seconds
 
+
+def build_user_agent():
+    """Construct a User-Agent that identifies this fork to Overpass operators.
+
+    Precedence: explicit TAP_IN_OSM_USER_AGENT > derived from $GITHUB_REPOSITORY
+    > generic local fallback. Overpass's usage policy asks each client to
+    identify itself; sharing a UA across forks invites rate limiting.
+    """
+    explicit = os.environ.get("TAP_IN_OSM_USER_AGENT", "").strip()
+    if explicit:
+        return explicit
+    repo = os.environ.get("GITHUB_REPOSITORY", "").strip()
+    if repo:
+        return f"tap-in-osm (https://github.com/{repo})"
+    return "tap-in-osm (unconfigured local run)"
+
+
+USER_AGENT = build_user_agent()
+
 # Tags that indicate a closed way should be treated as a Polygon (area)
 # rather than a LineString. Based on XofY's isArea() and standard OSM conventions.
 AREA_TAG_KEYS = {
@@ -112,7 +131,7 @@ def fetch_overpass(query):
             req = urllib.request.Request(
                 endpoint,
                 data=encoded,
-                headers={"User-Agent": "tap-in-osm/1.0"},
+                headers={"User-Agent": USER_AGENT},
             )
             with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as resp:
                 body = resp.read().decode("utf-8")
@@ -563,6 +582,7 @@ def write_geojson(features, path):
 
 def main():
     query = read_query(QUERY_FILE)
+    print(f"User-Agent: {USER_AGENT}")
     data = fetch_overpass(query)
 
     elements = data.get("elements", [])
