@@ -16,13 +16,13 @@ from datetime import datetime, timezone
 
 
 def build_user_agent():
-    explicit = os.environ.get("TAP_IN_OSM_USER_AGENT", "").strip()
+    explicit = os.environ.get("MICROCOSM_USER_AGENT", "").strip()
     if explicit:
         return explicit
     repo = os.environ.get("GITHUB_REPOSITORY", "").strip()
     if repo:
-        return f"tap-in-osm (https://github.com/{repo})"
-    return "tap-in-osm (unconfigured local run)"
+        return f"microcosm (https://github.com/{repo})"
+    return "microcosm (unconfigured local run)"
 
 
 USER_AGENT = build_user_agent()

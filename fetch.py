@@ -34,17 +34,17 @@ REQUEST_TIMEOUT = 180  # seconds
 def build_user_agent():
     """Construct a User-Agent that identifies this fork to Overpass operators.
 
-    Precedence: explicit TAP_IN_OSM_USER_AGENT > derived from $GITHUB_REPOSITORY
+    Precedence: explicit MICROCOSM_USER_AGENT > derived from $GITHUB_REPOSITORY
     > generic local fallback. Overpass's usage policy asks each client to
     identify itself; sharing a UA across forks invites rate limiting.
     """
-    explicit = os.environ.get("TAP_IN_OSM_USER_AGENT", "").strip()
+    explicit = os.environ.get("MICROCOSM_USER_AGENT", "").strip()
     if explicit:
         return explicit
     repo = os.environ.get("GITHUB_REPOSITORY", "").strip()
     if repo:
-        return f"tap-in-osm (https://github.com/{repo})"
-    return "tap-in-osm (unconfigured local run)"
+        return f"microcosm (https://github.com/{repo})"
+    return "microcosm (unconfigured local run)"
 
 
 USER_AGENT = build_user_agent()
@@ -120,7 +120,7 @@ def fetch_overpass(query):
     Returns parsed JSON response dict.
     """
     max_lag_hours = float(
-        os.environ.get("TAP_IN_OSM_MAX_DATA_LAG_HOURS", DEFAULT_MAX_DATA_LAG_HOURS)
+        os.environ.get("MICROCOSM_MAX_DATA_LAG_HOURS", DEFAULT_MAX_DATA_LAG_HOURS)
     )
     encoded = urllib.parse.urlencode({"data": query}).encode("utf-8")
     last_error = None
@@ -594,7 +594,7 @@ def main():
 
     print(f"Converted {len(features)} features to GeoJSON.")
 
-    threshold = int(os.environ.get("TAP_IN_OSM_DROP_THRESHOLD", DEFAULT_DROP_THRESHOLD))
+    threshold = int(os.environ.get("MICROCOSM_DROP_THRESHOLD", DEFAULT_DROP_THRESHOLD))
     check_feature_drop(len(features), OUTPUT_FILE, threshold)
 
     write_geojson(features, OUTPUT_FILE)

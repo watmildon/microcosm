@@ -20,9 +20,9 @@ jobs:
       - name: Fetch and convert data
         run: python3 fetch.py
         env:
-          TAP_IN_OSM_DROP_THRESHOLD: ${{ vars.DROP_THRESHOLD || '50' }}
-          TAP_IN_OSM_MAX_DATA_LAG_HOURS: ${{ vars.MAX_DATA_LAG_HOURS || '48' }}
-          TAP_IN_OSM_USER_AGENT: ${{ vars.USER_AGENT }}
+          MICROCOSM_DROP_THRESHOLD: ${{ vars.DROP_THRESHOLD || '50' }}
+          MICROCOSM_MAX_DATA_LAG_HOURS: ${{ vars.MAX_DATA_LAG_HOURS || '48' }}
+          MICROCOSM_USER_AGENT: ${{ vars.USER_AGENT }}
 
       - name: Commit and push if changed
         run: |
