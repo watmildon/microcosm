@@ -2,8 +2,10 @@ name: Update GeoJSON Data
 
 on:
   schedule:
-    # Run at 04:00 UTC daily
-    - cron: '0 4 * * *'
+    # Run at 07:23 UTC daily. Off-the-hour avoids GitHub Actions cron-pileup
+    # delays, and this window is lighter on overpass-api.de than the popular
+    # 04:00 UTC slot where we saw 504s.
+    - cron: '23 7 * * *'
   workflow_dispatch: # Allow manual trigger from Actions tab
 
 permissions:
