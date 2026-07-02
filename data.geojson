@@ -2165,9 +2165,16 @@
         ]
       },
       "properties": {
+        "access": "yes",
         "amenity": "drinking_water",
         "bottle": "yes",
+        "covered": "no",
+        "fee": "no",
         "fountain": "bubbler",
+        "indoor": "yes",
+        "level": "2",
+        "lit": "yes",
+        "wheelchair": "yes",
         "@id": "node/4290851446",
         "@type": "node"
       }
@@ -3990,6 +3997,29 @@
         "amenity": "drinking_water",
         "fountain": "bubbler",
         "@id": "node/13878303632",
+        "@type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.5901666,
+          45.5892883
+        ]
+      },
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "yes",
+        "level": "2",
+        "lit": "yes",
+        "wheelchair": "yes",
+        "@id": "node/13981467402",
         "@type": "node"
       }
     }
