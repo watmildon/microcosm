@@ -858,6 +858,8 @@
       },
       "properties": {
         "amenity": "drinking_water",
+        "check_date": "2026-07-13",
+        "fountain": "bubbler",
         "@id": "node/2519219353",
         "@type": "node"
       }
@@ -4044,6 +4046,29 @@
         "lit": "yes",
         "wheelchair": "yes",
         "@id": "node/13996187324",
+        "@type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.5901666,
+          45.5892883
+        ]
+      },
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "yes",
+        "level": "2",
+        "lit": "yes",
+        "wheelchair": "yes",
+        "@id": "node/14011341165",
         "@type": "node"
       }
     }
