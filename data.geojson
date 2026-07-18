@@ -2367,21 +2367,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.6159412,
-          45.4966592
-        ]
-      },
-      "properties": {
-        "amenity": "drinking_water",
-        "@id": "node/5061007143",
-        "@type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -122.5959848,
           45.4891916
         ]
@@ -4115,6 +4100,52 @@
         "lit": "yes",
         "wheelchair": "yes",
         "@id": "node/14018921216",
+        "@type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.5901666,
+          45.5892883
+        ]
+      },
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "yes",
+        "level": "2",
+        "lit": "yes",
+        "wheelchair": "yes",
+        "@id": "node/14022745732",
+        "@type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.5901666,
+          45.5892883
+        ]
+      },
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "yes",
+        "level": "2",
+        "lit": "yes",
+        "wheelchair": "yes",
+        "@id": "node/14023583112",
         "@type": "node"
       }
     }
