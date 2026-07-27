@@ -330,21 +330,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.7166753,
-          45.5156625
-        ]
-      },
-      "properties": {
-        "amenity": "drinking_water",
-        "@id": "node/790639096",
-        "@type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -122.7157902,
           45.5156549
         ]
@@ -4017,159 +4002,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.5901666,
-          45.5892883
+          -122.6795443,
+          45.5171837
         ]
       },
       "properties": {
-        "access": "yes",
         "amenity": "drinking_water",
-        "bottle": "yes",
-        "covered": "no",
-        "fee": "no",
-        "indoor": "yes",
-        "level": "2",
-        "lit": "yes",
-        "wheelchair": "yes",
-        "@id": "node/13996187324",
-        "@type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -122.5901666,
-          45.5892883
-        ]
-      },
-      "properties": {
-        "access": "yes",
-        "amenity": "drinking_water",
-        "bottle": "yes",
-        "covered": "no",
-        "fee": "no",
-        "indoor": "yes",
-        "level": "2",
-        "lit": "yes",
-        "wheelchair": "yes",
-        "@id": "node/14011341165",
-        "@type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -122.5901666,
-          45.5892883
-        ]
-      },
-      "properties": {
-        "access": "yes",
-        "amenity": "drinking_water",
-        "bottle": "yes",
-        "covered": "no",
-        "fee": "no",
-        "indoor": "yes",
-        "level": "2",
-        "lit": "yes",
-        "wheelchair": "yes",
-        "@id": "node/14015224226",
-        "@type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -122.5901666,
-          45.5892883
-        ]
-      },
-      "properties": {
-        "access": "yes",
-        "amenity": "drinking_water",
-        "bottle": "yes",
-        "covered": "no",
-        "fee": "no",
-        "indoor": "yes",
-        "level": "2",
-        "lit": "yes",
-        "wheelchair": "yes",
-        "@id": "node/14018921216",
-        "@type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -122.5901666,
-          45.5892883
-        ]
-      },
-      "properties": {
-        "access": "yes",
-        "amenity": "drinking_water",
-        "bottle": "yes",
-        "covered": "no",
-        "fee": "no",
-        "indoor": "yes",
-        "level": "2",
-        "lit": "yes",
-        "wheelchair": "yes",
-        "@id": "node/14022745732",
-        "@type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -122.5901666,
-          45.5892883
-        ]
-      },
-      "properties": {
-        "access": "yes",
-        "amenity": "drinking_water",
-        "bottle": "yes",
-        "covered": "no",
-        "fee": "no",
-        "indoor": "yes",
-        "level": "2",
-        "lit": "yes",
-        "wheelchair": "yes",
-        "@id": "node/14023583112",
-        "@type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -122.5901666,
-          45.5892883
-        ]
-      },
-      "properties": {
-        "access": "yes",
-        "amenity": "drinking_water",
-        "bottle": "yes",
-        "covered": "no",
-        "fee": "no",
-        "indoor": "yes",
-        "level": "2",
-        "lit": "yes",
-        "wheelchair": "yes",
-        "@id": "node/14025234547",
+        "@id": "node/14051856113",
         "@type": "node"
       }
     }
