@@ -330,21 +330,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.7166753,
-          45.5156625
-        ]
-      },
-      "properties": {
-        "amenity": "drinking_water",
-        "@id": "node/790639096",
-        "@type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -122.7157902,
           45.5156549
         ]
@@ -858,6 +843,8 @@
       },
       "properties": {
         "amenity": "drinking_water",
+        "check_date": "2026-07-13",
+        "fountain": "bubbler",
         "@id": "node/2519219353",
         "@type": "node"
       }
@@ -2165,9 +2152,16 @@
         ]
       },
       "properties": {
+        "access": "yes",
         "amenity": "drinking_water",
         "bottle": "yes",
+        "covered": "no",
+        "fee": "no",
         "fountain": "bubbler",
+        "indoor": "yes",
+        "level": "2",
+        "lit": "yes",
+        "wheelchair": "yes",
         "@id": "node/4290851446",
         "@type": "node"
       }
@@ -2249,6 +2243,7 @@
         "bottle": "no",
         "covered": "no",
         "dog": "no",
+        "fountain": "bubbler",
         "indoor": "no",
         "lit": "no",
         "wheelchair": "no",
@@ -2350,21 +2345,6 @@
       "properties": {
         "amenity": "drinking_water",
         "@id": "node/4909382691",
-        "@type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -122.6159412,
-          45.4966592
-        ]
-      },
-      "properties": {
-        "amenity": "drinking_water",
-        "@id": "node/5061007143",
         "@type": "node"
       }
     },
@@ -3682,6 +3662,7 @@
       },
       "properties": {
         "amenity": "drinking_water",
+        "fountain": "bubbler",
         "@id": "node/13101217760",
         "@type": "node"
       }
@@ -3990,6 +3971,44 @@
         "amenity": "drinking_water",
         "fountain": "bubbler",
         "@id": "node/13878303632",
+        "@type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.5901666,
+          45.5892883
+        ]
+      },
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "yes",
+        "level": "2",
+        "lit": "yes",
+        "wheelchair": "yes",
+        "@id": "node/13981467402",
+        "@type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.6795443,
+          45.5171837
+        ]
+      },
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/14051856113",
         "@type": "node"
       }
     }
