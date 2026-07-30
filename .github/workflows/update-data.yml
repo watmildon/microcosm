@@ -25,6 +25,9 @@ jobs:
           MICROCOSM_DROP_THRESHOLD: ${{ vars.DROP_THRESHOLD || '50' }}
           MICROCOSM_MAX_DATA_LAG_HOURS: ${{ vars.MAX_DATA_LAG_HOURS || '48' }}
           MICROCOSM_USER_AGENT: ${{ vars.USER_AGENT }}
+          # Optional. A self-hosted or key-bearing Overpass instance, tried before
+          # the public endpoints. Unset in forks that don't have one, which is fine.
+          OVERPASS_PRIMARY_URL: ${{ secrets.OVERPASS_PRIMARY_URL }}
 
       - name: Commit and push if changed
         run: |

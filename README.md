@@ -23,6 +23,16 @@ You're encouraged to override it with something that includes a way to reach you
 
 If you start seeing `HTTP 429` (rate-limited) responses in the workflow logs, a contact-bearing User-Agent makes it much easier for Overpass admins to help rather than block you.
 
+## Using your own Overpass instance
+
+By default queries go to a rotating list of public Overpass servers. If you run your own instance, or use one that requires an API key in the URL, you can point Microcosm at it first.
+
+Set a GitHub repository **secret** named `OVERPASS_PRIMARY_URL` (Settings > Secrets and variables > Actions > Secrets > New repository secret) to the full interpreter URL. The URL is used verbatim, so a key embedded anywhere in the path works as-is.
+
+Microcosm never prints it: log lines refer to it only as `private instance ($OVERPASS_PRIMARY_URL)`, and errors are reduced to a status code or reason so the URL can't surface through an exception message.
+
+Your instance is tried **first**, with the public servers kept as fallback.
+
 ## Writing your query
 
 Edit `query.overpassql` with any valid Overpass QL query. Your query **must**:

@@ -17,7 +17,12 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 
-OVERPASS_ENDPOINTS = [
+# Environment variable holding a private Overpass instance URL (self-hosted, or a
+# public one that needs an API key in the URL). When set, it is tried before the
+# public endpoints below, which remain as fallback.
+PRIMARY_ENDPOINT_ENV_VAR = "OVERPASS_PRIMARY_URL"
+
+PUBLIC_OVERPASS_ENDPOINTS = [
     "https://overpass-api.de/api/interpreter",
     "https://overpass.kumi.systems/api/interpreter",
     "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
@@ -48,6 +53,48 @@ def build_user_agent():
 
 
 USER_AGENT = build_user_agent()
+
+
+# Stand-in used in place of the private endpoint's URL in all output. Nothing
+# about a private instance is logged — not even the hostname, since these URLs
+# often carry the API key in the path (…/k/<key>/api/interpreter), which makes
+# the host enough to guess the rest.
+PRIMARY_ENDPOINT_LABEL = f"private instance (${PRIMARY_ENDPOINT_ENV_VAR})"
+
+
+def build_endpoint_list():
+    """Return (url, label) pairs for the endpoints to try, in order.
+
+    A URL in $OVERPASS_PRIMARY_URL goes first and the public endpoints stay on
+    as fallback, so a private instance being down doesn't stop the update.
+    Labels are what gets printed; the private URL never is.
+    """
+    public = [(url, endpoint_label(url)) for url in PUBLIC_OVERPASS_ENDPOINTS]
+    primary = os.environ.get(PRIMARY_ENDPOINT_ENV_VAR, "").strip()
+
+    if not primary:
+        return public
+
+    parsed = urllib.parse.urlparse(primary)
+    if parsed.scheme not in ("http", "https") or not parsed.netloc:
+        print(
+            f"WARNING: {PRIMARY_ENDPOINT_ENV_VAR} is not a valid http(s) URL, "
+            f"ignoring it and using public Overpass endpoints only",
+            file=sys.stderr,
+        )
+        return public
+
+    print(
+        f"Using primary Overpass endpoint from {PRIMARY_ENDPOINT_ENV_VAR}, "
+        f"with public endpoints as fallback"
+    )
+    return [(primary, PRIMARY_ENDPOINT_LABEL)] + public
+
+
+def endpoint_label(endpoint):
+    """Host-only label for a public endpoint."""
+    return urllib.parse.urlparse(endpoint).hostname or endpoint
+
 
 # Tags that indicate a closed way should be treated as a Polygon (area)
 # rather than a LineString. Based on XofY's isArea() and standard OSM conventions.
@@ -125,8 +172,8 @@ def fetch_overpass(query):
     encoded = urllib.parse.urlencode({"data": query}).encode("utf-8")
     last_error = None
 
-    for endpoint in OVERPASS_ENDPOINTS:
-        print(f"Trying {endpoint} ...")
+    for endpoint, label in build_endpoint_list():
+        print(f"Trying {label} ...")
         try:
             req = urllib.request.Request(
                 endpoint,
@@ -137,18 +184,19 @@ def fetch_overpass(query):
                 body = resp.read().decode("utf-8")
         except urllib.error.HTTPError as e:
             print(f"  HTTP {e.code}: {e.reason}", file=sys.stderr)
-            last_error = e
+            last_error = f"{label}: HTTP {e.code} {e.reason}"
             if e.code == 429:
                 print("  Rate limited, waiting 5s before next server...", file=sys.stderr)
                 time.sleep(5)
             continue
         except urllib.error.URLError as e:
             print(f"  Network error: {e.reason}", file=sys.stderr)
-            last_error = e
+            last_error = f"{label}: {e.reason}"
             continue
         except Exception as e:
-            print(f"  Unexpected error: {e}", file=sys.stderr)
-            last_error = e
+            # Only the type — an arbitrary exception's message may echo the URL.
+            print(f"  Unexpected error: {type(e).__name__}", file=sys.stderr)
+            last_error = f"{label}: {type(e).__name__}"
             continue
 
         # Parse JSON
@@ -157,14 +205,14 @@ def fetch_overpass(query):
         except json.JSONDecodeError as e:
             print(f"  Invalid JSON response: {e}", file=sys.stderr)
             print("  (Does your query include [out:json]?)", file=sys.stderr)
-            last_error = e
+            last_error = f"{label}: invalid JSON response"
             continue
 
         # Check for Overpass remark (error/warning in a 200 response)
         remark = data.get("remark")
         if remark and not data.get("elements"):
             print(f"  Overpass remark: {remark}", file=sys.stderr)
-            last_error = Exception(remark)
+            last_error = f"{label}: {remark}"
             continue
 
         # Check data freshness
@@ -175,7 +223,7 @@ def fetch_overpass(query):
                 f"exceeds {max_lag_hours}h threshold. Trying next server...",
                 file=sys.stderr,
             )
-            last_error = Exception(f"Stale data from {endpoint}")
+            last_error = f"Stale data from {label}"
             continue
 
         if remark:
