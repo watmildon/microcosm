@@ -945,6 +945,7 @@
       },
       "properties": {
         "amenity": "drinking_water",
+        "check_date": "2026-07-31",
         "@id": "node/2882755209",
         "@type": "node"
       }
@@ -3541,6 +3542,7 @@
         "amenity": "drinking_water",
         "bottle": "no",
         "covered": "no",
+        "fountain": "bubbler",
         "wheelchair": "yes",
         "@id": "node/12967798225",
         "@type": "node"
