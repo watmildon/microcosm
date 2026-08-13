@@ -4013,6 +4013,21 @@
         "@id": "node/14051856113",
         "@type": "node"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.7018477,
+          45.5190396
+        ]
+      },
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/14090539757",
+        "@type": "node"
+      }
     }
   ]
 }
