@@ -898,6 +898,8 @@
       },
       "properties": {
         "amenity": "drinking_water",
+        "check_date": "2026-08-13",
+        "fountain": "bubbler",
         "toilets:wheelchair": "no",
         "wheelchair": "yes",
         "@id": "node/2681468391",
