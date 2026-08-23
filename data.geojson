@@ -860,6 +860,7 @@
       },
       "properties": {
         "amenity": "drinking_water",
+        "fountain": "bubbler",
         "indoor": "yes",
         "@id": "node/2519230761",
         "@type": "node"
