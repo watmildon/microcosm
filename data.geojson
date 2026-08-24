@@ -4031,6 +4031,22 @@
         "@id": "node/14090539757",
         "@type": "node"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.6009214,
+          45.4739309
+        ]
+      },
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "@id": "node/14117983170",
+        "@type": "node"
+      }
     }
   ]
 }
