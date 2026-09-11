@@ -289,6 +289,8 @@
       },
       "properties": {
         "amenity": "drinking_water",
+        "check_date": "2026-09-10",
+        "fountain": "bubbler",
         "@id": "node/692397787",
         "@type": "node"
       }
@@ -446,6 +448,8 @@
       },
       "properties": {
         "amenity": "drinking_water",
+        "check_date": "2026-09-10",
+        "fountain": "bubbler",
         "@id": "node/987172640",
         "@type": "node"
       }
@@ -1872,36 +1876,6 @@
         "toilets:wheelchair": "no",
         "wheelchair": "yes",
         "@id": "node/4005935460",
-        "@type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -122.6800557,
-          45.5165532
-        ]
-      },
-      "properties": {
-        "amenity": "drinking_water",
-        "@id": "node/4005935621",
-        "@type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -122.6794181,
-          45.5175329
-        ]
-      },
-      "properties": {
-        "amenity": "drinking_water",
-        "@id": "node/4005935678",
         "@type": "node"
       }
     },
@@ -4013,6 +3987,7 @@
       },
       "properties": {
         "amenity": "drinking_water",
+        "fountain": "bubbler",
         "@id": "node/14051856113",
         "@type": "node"
       }
