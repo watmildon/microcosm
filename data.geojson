@@ -3721,6 +3721,7 @@
       },
       "properties": {
         "amenity": "drinking_water",
+        "fountain": "bubbler",
         "name": "Oregon Convention Center",
         "@id": "node/13263707202",
         "@type": "node"
