@@ -1549,6 +1549,7 @@
       "properties": {
         "amenity": "drinking_water",
         "check_date": "2021-10-31",
+        "fountain": "bubbler",
         "@id": "node/3684328744",
         "@type": "node"
       }
@@ -2271,10 +2272,12 @@
         ]
       },
       "properties": {
+        "access": "yes",
         "amenity": "drinking_water",
-        "check_date": "2024-01-03",
+        "check_date": "2026-10-7",
         "fountain": "bubbler",
-        "name": "Horse Trough Fountain",
+        "name": "Willamette Heights Drinking Fountain",
+        "usage": "dog, horse, human",
         "@id": "node/4591955047",
         "@type": "node"
       }
