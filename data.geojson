@@ -937,6 +937,8 @@
       },
       "properties": {
         "amenity": "drinking_water",
+        "check_date": "2026-10-15",
+        "fountain": "bubbler",
         "@id": "node/2799215953",
         "@type": "node"
       }
