@@ -9,7 +9,7 @@ Get a GeoJSON file of OpenStreetMap data, updated nightly, by writing one Overpa
 3. **Run the workflow manually**: go to **Actions** > **"Update GeoJSON Data"** > **"Run workflow"**
 4. **Check `data.geojson`** - it should now contain your data
 
-From now on, your data will update automatically every night at 04:00 UTC.
+From now on, your data will update automatically once a day. The workflow is scheduled for 07:23 UTC, but GitHub often starts scheduled runs several hours late.
 
 ## Identifying your instance to Overpass
 

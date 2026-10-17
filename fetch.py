@@ -24,16 +24,14 @@ PRIMARY_ENDPOINT_ENV_VAR = "OVERPASS_PRIMARY_URL"
 
 PUBLIC_OVERPASS_ENDPOINTS = [
     "https://overpass-api.de/api/interpreter",
-    "https://overpass.kumi.systems/api/interpreter",
     "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
-    "https://overpass.private.coffee/api/interpreter",
 ]
 
 QUERY_FILE = "query.overpassql"
 OUTPUT_FILE = "data.geojson"
 DEFAULT_DROP_THRESHOLD = 50  # percent
 DEFAULT_MAX_DATA_LAG_HOURS = 48
-REQUEST_TIMEOUT = 180  # seconds
+REQUEST_TIMEOUT = 90  # seconds
 
 
 def build_user_agent():

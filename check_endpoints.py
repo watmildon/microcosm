@@ -32,9 +32,7 @@ PRIMARY_ENDPOINT_ENV_VAR = "OVERPASS_PRIMARY_URL"
 
 PUBLIC_ENDPOINTS = [
     "https://overpass-api.de/api/",
-    "https://overpass.kumi.systems/api/",
     "https://maps.mail.ru/osm/tools/overpass/api/",
-    "https://overpass.private.coffee/api/",
     "https://overpass.maprva.org/api/",
 ]
 
